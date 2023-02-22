@@ -26,7 +26,7 @@ function App() {
           }}
           onKeyDown={e => {
             e.key === "Escape" && setValue("");
-            e.key === "Enter" && add();
+            e.key === "Enter" && value && !searchWord(value) && add();
           }}
         />
         <div>

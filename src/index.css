@@ -53,6 +53,8 @@ input {
 
 .content {
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
   padding-inline: 5%;
   padding-top: 5%;
 }
