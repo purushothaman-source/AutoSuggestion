@@ -1,3 +1,4 @@
+import data from "./data";
 import { Trie } from "@purushothkabaddi/js-dsa";
 import { useCallback, useEffect, useState } from "react";
 
@@ -31,7 +32,13 @@ const useTrie = () => {
     for (let index = 0; index < items.length; index++) {
       addWord(items[index], true);
     }
-  }, [trie, addWord]);
+  }, [addWord]);
+
+  useEffect(() => {
+    for (let index = 0; index < data.length; index++) {
+      addWord(data[index], true);
+    }
+  }, [addWord]);
 
   return { addWord, searchWord, removeWord, suggestWords };
 };
