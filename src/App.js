@@ -1,6 +1,6 @@
 import useTrie from "./utils/useTrie";
 import "./index.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const inputRef = useRef("");
@@ -12,6 +12,10 @@ function App() {
     addWord(value);
     setValue("");
   };
+
+  useEffect(() => {
+    inputRef.current && inputRef.current.focus();
+  }, []);
 
   return (
     <>
@@ -35,7 +39,7 @@ function App() {
           </button>
         </div>
       </div>
-      <div class="content-wrapper">
+      <div className="content-wrapper">
         {!value ? (
           <div className="placeholder">
             Welcome to auto suggestions , Start typing...{" "}
@@ -43,11 +47,12 @@ function App() {
         ) : words.length === 0 ? (
           <div className="placeholder"> You have 0 suggestions</div>
         ) : (
-          <div class="content">
+          <div className="content">
             {words.map(item => {
               return (
                 <div
-                  class="chip"
+                  className="chip"
+                  key={item}
                   onClick={() => {
                     inputRef.current && inputRef.current.focus();
                     setValue(item);

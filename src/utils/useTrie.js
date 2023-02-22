@@ -27,7 +27,6 @@ const useTrie = () => {
   };
 
   useEffect(() => {
-    console.log("changing");
     let items = JSON.parse(localStorage.getItem("items")) || [];
     for (let index = 0; index < items.length; index++) {
       addWord(items[index], true);
